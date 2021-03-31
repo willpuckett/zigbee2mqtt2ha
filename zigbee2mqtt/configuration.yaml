@@ -1,0 +1,13 @@
+homeassistant: true
+permit_join: false
+mqtt:
+  base_topic: zigbee2mqtt
+  server: 'mqtt://localhost'
+  user: <your user>
+  password: <your password>
+serial:
+  port: /dev/ttyS0
+  adapter: deconz
+frontend:
+  port: 8080
+  host: 0.0.0.0

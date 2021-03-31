@@ -1,0 +1,39 @@
+version: '3'
+services:
+
+  homeassistant:
+    container_name: homeassistant
+    image: homeassistant/raspberrypi4-homeassistant:stable
+    volumes:
+      - ./ha:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    network_mode: host
+    depends_on:
+     - mqtt 
+     - zigbee2mqtt
+
+  mqtt:
+    container_name: mqtt
+    image: eclipse-mosquitto 
+    volumes:
+     - ./mosquitto/config:/mosquitto/config
+     - ./mosquitto/log:/mosquitto/log
+     - ./mosquitto/data:/mosquitto/data
+     - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    network_mode: host
+
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt
+    volumes:
+     - ./zigbee2mqtt:/app/data
+     - /run/udev:/run/udev:ro
+     - /etc/localtime:/etc/localtime:ro
+    devices:
+     - /dev/ttyS0:/dev/ttyS0
+    restart: unless-stopped
+    network_mode: host
+    depends_on: 
+     - mqtt
