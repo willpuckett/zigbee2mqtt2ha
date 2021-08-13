@@ -2,7 +2,7 @@
 
 A quick and easy setup for [HomeAssistant](https://www.home-assistant.io) with [MQTT](https://mosquitto.org) and [Zigbee2MQTT](https://www.zigbee2mqtt.io) in [Docker](https://www.docker.com). I ran the hassio image for a while, but kept having problems. Although I was probably fighting my own ignorance as much as anything, suddenly everything got a lot easier and ran better when I switched to this Docker install.
 
-Based on ARM images configured for a [RaspbeeII](https://phoscon.de/en/raspbee) on 64-bit [Raspberry Pi](https://www.raspberrypi.org), but *easily adaptable* via `zigbee2mqtt/configuration.yaml` (it's pretty good at finding most adapters so you can comment out the whole "serial" section of of `zigbee2mqtt/configuration.yaml` and change `compose.yml` to your pass your device through to the container and use the web interface to configure).
+Based on ARM images configured for a [RaspbeeII](https://phoscon.de/en/raspbee) on 64-bit [Raspberry Pi](https://www.raspberrypi.org), but *easily adaptable* via `zigbee2mqtt/configuration.yaml` (it's pretty good at finding most adapters so you can comment out the whole "serial" section of of `zigbee2mqtt/configuration.yaml` and change `compose.yml` to pass your device through to the container and use the web interface to configure).
 
 ## Installation
 
